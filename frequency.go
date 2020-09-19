@@ -48,6 +48,10 @@ func New(opts ...Option) *Frequency {
 	return freq
 }
 
+func (freq *Frequency) IsBlocked() bool {
+	return freq.blocked
+}
+
 func (freq *Frequency) ReserveN(n int64) (time.Duration, bool) {
 	if freq.blocked {
 		return 0, false
